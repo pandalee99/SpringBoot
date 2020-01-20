@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    function post() {
+    $.post({
+    url : "./user",
+    // 此处需要告知传递参数类型为JSON，不能缺少
+    contentType : "application/json",
+    // 将JSON转化为字符串传递
+    data : JSON.stringify(params),
+    // 成功后的方法
+    success : function(result) {
+    if (result == null || result.id == null) {
+    alert("插入失败");
+    return;
+    }
+    alert("插入成功");
+    }
+    });
+    }
+
+
+
+    function get() {
+        $.get("./user/1", function(user, status) {
+            if (user == null) {
+                alert("结果为空")
+            } else {
+                alert("用户信息为"+JSON.stringify(user));
+            }
+        });
+    }
+
+
+
+    function findUsers() {
+        $.get("./users/u/n/0/5", function(user, status) {
+            if (user == null) {
+                alert("结果为空")
+            } else {
+                alert("用户信息为:"+JSON.stringify(user));
+            }
+        });
+    }
+
+
+    function updateUser() {
+        $.ajax({
+            url : "./user/1",
+            // 此处告知使用PUT请求
+            type : 'PUT',
+            // 此处需要告知传递参数类型为JSON，不能缺少
+            contentType : "application/json",
+            // 将JSON转化为字符串传递
+            data : JSON.stringify(params),
+            success : function(user, status) {
+                if (user == null) {
+                    alert("结果为空")
+                } else {
+                    alert(JSON.stringify(user));
+                }
+            }
+        });
+    }
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<h1>hello</h1>
+</body>
+</html>

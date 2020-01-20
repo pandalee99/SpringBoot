@@ -1,0 +1,36 @@
+server:
+  port: 8888
+
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.example.rest.pojo
+  type-handlers-package: com.example.rest.typeHandler
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/springtest?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      max-idle: 10
+      max-wait: 10000
+      max-active: 50
+      initial-size: 5
+#  cache:
+#    type: redis
+#  redis:
+#    database: 0
+#    host: localhost
+#    port: 6379
+#    password:
+#    timeout: 1000ms
+#    jedis:
+#      pool:
+#        max-active: 8
+#        max-wait: 5000ms
+#        max-idle: 8
+#        min-idle: 0
+#
