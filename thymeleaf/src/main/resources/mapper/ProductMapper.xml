@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.thymeleaf.dao.ProductDao">
+    <!-- 展示产品 -->
+	<select id="showProduct" resultType="product">
+		select * from t_product
+	</select>
+	<select id="getProduct" resultType="product">
+		select * from t_product where product_name=#{name}
+	</select>
+
+<!--增加产品	-->
+	<insert id="addProduct" useGeneratedKeys="true" keyProperty="id"
+			parameterType="product">
+		insert into t_product(product_name, stock,price,version,note)
+		values(#{productName},#{stock},#{price},#{version},#{note})
+	</insert>
+
+    <!-- 减少产品 -->
+	<delete id="deleteProduct" parameterType="long">
+		delete from t_product where id = #{id}
+	</delete>
+</mapper>

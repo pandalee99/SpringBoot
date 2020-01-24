@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        function del() {
+            if (confirm("您确定要删除吗？")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li th:each="product:${products}">
+        <span th:text="${product.id}">id</span>
+        <a th:href="@{showpro/{p}(p=${product.getProductName()})}"
+           th:value="${product.getProductName()}"
+           type="submit"
+           th:text="${product.productName}">产品名称</a>
+        <span th:text="${product.stock}">库存</span>
+        <span th:text="${product.price}">价格</span>
+        <span th:text="${product.version}">版本</span>
+        <span th:text="${product.note}">备注</span>
+        <a th:href="@{deletelist/{id}(id=${product.getId()})}"
+           th:value="${product.getId()}"
+           onclick="return del()"
+           type="submit">删除</a>
+    </li>
+</ul>
+<a href="add">增加产品</a>
+<a href="delete">删除产品</a>
+
+</body>
+</html>
