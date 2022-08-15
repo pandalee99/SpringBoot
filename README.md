@@ -2,8 +2,7 @@
 ## 关于SpringBoot的练习
 
 有教程：
-www.southcat.cn
-或者：http://antarctica.gitee.io/blog/ （更新较慢）
+已失效
 
 **designsho**p：设计一个高并发的抢购场景
 
