@@ -24,4 +24,4 @@
 
 **WebSocket**：WebSocket的基本使用，打造一个简易聊天室
 
-书籍推荐：待定。。。
+书籍参考：SpringBoot2企业级开发，深入浅出SpringBoot2.x，尚硅谷SpringBoot
